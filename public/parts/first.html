@@ -1,0 +1,91 @@
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+  <div class="panel-heading">Panel heading</div>
+  <div class="panel-body">
+<h1 id="message">kkk</h1>
+
+<form>
+ <input type="text" size="40" ng-model="email"><br>
+                <input type="password" size="40" ng-model="password"><br>
+                <button ng-click="check_credentials()">Login</button><br>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th data-field="id">Item ID</th>
+            <th data-field="name">Item Name</th>
+            <th data-field="price">Item Price</th>
+        </tr>
+        <tr ng-repeat="itm in itms">
+            <td data-field="id">{{itm.id}}</td>
+            <td data-field="name">{{itm.name}}</td>
+            <td data-field="price">{{itm.price}}</td>
+        </tr>
+    </thead>
+</table>	
+
+<table class="table">
+    <thead>
+        <tr>
+            <th data-field="id">Name</th>
+            <th data-field="name">Email</th>
+           
+        </tr>
+        <tr ng-repeat="d in users">
+            <td data-field="name">{{d.name}}</td>
+            <td data-field="email">{{d.email}}</td>
+     
+        </tr>
+    </thead>
+</table>  
+<pagination 
+      ng-model="currentPage"
+      total-items="todos.length"
+      max-size="maxSize"  
+      boundary-links="true">
+    </pagination>
+<nav>
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+
+
+
+
+  </div>
+
+</div>

@@ -1,0 +1,92 @@
+.selected {
+    background-color:#D0D9FD;
+   
+    font-weight:bold;
+    -webkit-transition:0.2s;
+-moz-transition:0.2s;
+-o-transition:0.2s;
+transition:0.6s;
+}
+
+* {
+	margin:0;
+}
+.sidebar{
+width:30%;
+background-color: #39435C;
+float: left;
+height: 600px;
+}
+#header{
+	height: 50px;
+	background-color: #283744;
+}
+#content{
+	width: 70%;
+	height: 600px;
+	padding: 15px;
+	float:left;
+	
+	background-color: #F3F3F3;
+
+}
+
+#nav{
+padding: 0;
+}
+
+#nav li{
+list-style: none;
+
+}
+
+#nav li a{
+color: white;
+display: block;
+padding:12px;
+border-bottom: 1px solid gray;
+text-decoration: none;
+-webkit-transition:0.2s;
+-moz-transition:0.2s;
+-o-transition:0.2s;
+transition:0.2s;
+}
+
+#nav li a:first-child { 
+    border-top: 1px solid gray;
+
+}
+
+#nav li a:hover{
+
+background-color: gray;
+
+}
+
+
+#container{
+
+margin: 20px;
+padding:5px;
+
+}
+
+.ng-enter{
+transition:0.75s;
+opacity:0;
+
+}
+
+.ng-enter-active{
+opacity:1;
+
+}
+.ng-leave{
+transition:0.75s;
+opacity:0;
+
+}
+.ng-leave-active{
+
+
+}

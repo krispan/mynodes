@@ -1,0 +1,62 @@
+<div>
+Second HTML
+
+
+<form name="myForm" ng-submit="submitMyForm()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input ng-model="f1.name" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input ng-model="f1.pw" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+<ul>
+  
+  
+  <li ng-repeat="n in users">{{n.name}}</li>
+</ul>
+
+
+</div>
+
+<div>
+    <div ng-controller="samplecontoller" ng-init="showData()">
+        
+        
+        <ul>
+            <li class="paginationclass" style="font-weight:bold;"><span>Name</span><span>Age</span><span>Designation</span></li>            
+            <li class="paginationclass" ng-repeat="datalist in datalists | pagination: curPage * pageSize | limitTo: pageSize">
+            <div>
+              <span>{{ datalist.name }} </span><span>{{ datalist.age }}</span><span>{{ datalist.designation }}</span>
+            </div> 
+            </li>
+        </ul> 
+        
+      <div class="pagination pagination-centered" ng-show="datalists.length">
+          <ul class="pagination-controle pagination">
+              <li>
+                  <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                      ng-click="curPage=curPage-1"> &lt; PREV</button>
+              </li>
+              <li>
+                <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+              </li>
+              <li>
+                 <button type="button" class="btn btn-primary"
+                 ng-disabled="curPage >= datalists.length/pageSize - 1"
+                 ng-click="curPage = curPage+1">NEXT &gt;</button>
+              </li>
+        </ul>
+    </div>
+    
+    
+    
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<div ng-init="getDept()">
+	<h1>Departments</h1>
+
+
+<button>test</button>
+
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  sfsdfds
+
+</div>
+
+
+
+<form name="fDept" ng-submit="submitfDept()">
+
+  <div class="form-group" ng-class="{ 'has-error' : fDept.name.$invalid && !fDept.name.$pristine }">
+    <label for="exampleInputEmail1">Department ID</label>
+    <input ng-model="f1.id" type="text" class="form-control" id="dept_id" placeholder="Enter Department ID" name="name" required >
+     <p ng-show="fDept.name.$invalid && !fDept.name.$pristine" class="help-block">You name is required.</p>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Department Name</label>
+    <input ng-model="f1.name" type="text" class="form-control" id="dept_name" placeholder="Department Name">
+  </div>
+  
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<hr></hr>
+
+<button class="btn btn-success" ng-click="ShowConfirmYesNo()">Confirm Dialog</button>
+        
+
+<table class="table">
+    <thead>
+        <tr>
+            <th data-field="id">Dept ID</th>
+            <th data-field="name">Name</th>
+       
+        </tr>
+        <tr ng-repeat="dept in departments | pagination: curPage * pageSize | limitTo: pageSize" ng-include="getTemplate(dept)" data-id="{{dept.ID}}" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+            <!-- <td data-field="id">{{dept.DEPT_ID}}</td>
+            <td data-field="name">{{dept.DEPT_NAME}}</td>
+            <td><button ng-click="enableEditor()">remove</button></td> -->
+    
+        </tr>
+        
+    </thead>
+</table>	
+
+
+<div class="pagination pagination-centered" ng-show="departments.length">
+          <ul class="pagination-controle pagination">
+              <li>
+                  <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                      ng-click="curPage=curPage-1"> &lt; PREV</button>
+              </li>
+              <li>
+                <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+              </li>
+              <li>
+                 <button type="button" class="btn btn-primary"
+                 ng-disabled="curPage >= datalists.length/pageSize - 1"
+                 ng-click="curPage = curPage+1">NEXT &gt;</button>
+              </li>
+        </ul>
+</div>
+
+<script type="text/ng-template" id="display">
+         <td data-field="id">{{dept.DEPT_ID}}</td>
+            <td data-field="name">{{dept.DEPT_NAME}}</td>
+        <td>
+            <button ng-click="editContact()" class="btn btn-default">Edit</button>
+            <button ng-click="deleteDept()" class="btn btn-danger">Delete</button>
+            
+
+
+        </td>
+    </script>
+    <script type="text/ng-template" id="edit">
+        <td><input type="text" ng-model="selected.DEPT_ID" class="form-control" /></td>
+        <td><input type="text" ng-model="selected.DEPT_NAME" class="form-control"/></td>
+        <td>
+            <button ng-click="saveContact($index)" class="btn btn-success">Save</button>
+            
+            <button ng-click="reset($index)"  class="btn btn-default">Cancel</button>
+        </td>
+    </script>
+
+</div>
+
+<h3>A Custom Async Confirmation Box using Bootstrap Modal</h3>
+
+    <label>Yes &amp; No: </label><button onclick="ShowConfirmYesNo()">Hunger Test</button> (<label id="lblTestResult">Not Available</label>)
+    <div id="modalConfirmYesNo" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="lblTitleConfirmYesNo" class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="lblMsgConfirmYesNo"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnYesConfirmYesNo" type="button" class="btn btn-primary">Yes</button>
+                    <button id="btnNoConfirmYesNo" type="button" class="btn btn-default">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+
+
+
+    <h1>next</h1>
+    <form name="userForm" ng-submit="submitForm()" novalidate>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="user.name" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+        </div>
+      
+        <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
+            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+    </form>>
